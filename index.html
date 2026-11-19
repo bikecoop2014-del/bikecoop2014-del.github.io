@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자전거문화사회적협동조합 (바이쿱) · 자전거면 충분하다</title>
+    <meta name="description" content="자전거문화사회적협동조합(바이쿱)은 찾아가는 자전거 안전교육, 자전거 국토종주, 사회연대경제 우선구매를 통해 일상 속 자전거 문화를 만들어 갑니다. 2014년 설립 이후 초등학생 37만 명을 교육했습니다.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="자전거문화사회적협동조합 (바이쿱)">
+    <meta property="og:description" content="모두를 위한 자전거 교통 문화와 지속 가능한 미래. 찾아가는 자전거 안전교육 · 국토종주 · 사회연대경제 우선구매.">
+    <meta property="og:url" content="https://bikecoop2014-del.github.io/">
+    <meta property="og:image" content="https://bikecoop2014-del.github.io/logo.svg">
+    <link rel="icon" href="logo.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&display=swap');
+        body { font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; scroll-behavior: smooth; }
+        section[id] { scroll-margin-top: 6rem; }
+        @media print {
+            body * { visibility: hidden; }
+            #printableCertificate, #printableCertificate * { visibility: visible; }
+            #printableCertificate { position: absolute; left: 0; top: 0; width: 100%; border-color: #059669 !important; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+    <!-- 상단 헤더 -->
+    <header class="bg-white/95 backdrop-blur shadow-sm sticky top-0 z-50 border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+            <a href="#top" class="flex items-center space-x-3 min-w-0">
+                <img src="logo.svg" alt="바이쿱 로고" width="48" height="48" class="h-12 w-12 object-contain rounded-full shadow-sm border border-emerald-100 shrink-0">
+                <span class="min-w-0">
+                    <span class="text-slate-900 font-extrabold text-sm sm:text-base block truncate">자전거문화사회적협동조합</span>
+                    <span class="text-emerald-700 font-bold text-xs bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 inline-block mt-0.5">자전거면 충분하다!!</span>
+                </span>
+            </a>
+
+            <!-- 데스크톱 메뉴 -->
+            <nav class="hidden lg:flex items-center space-x-7 font-semibold text-slate-700 text-[15px]">
+                <a href="#about" class="hover:text-emerald-600 transition">조합소개</a>
+                <a href="#history" class="hover:text-emerald-600 transition">연혁·성과</a>
+                <a href="#programs" class="hover:text-emerald-600 transition">주요사업</a>
+                <a href="#quiz" class="hover:text-emerald-600 transition text-emerald-600">안전능력고사</a>
+                <a href="#reservation" class="hover:text-emerald-600 transition">교육신청</a>
+                <a href="#channels" class="hover:text-emerald-600 transition">공식채널</a>
+            </nav>
+
+            <div class="flex items-center gap-2">
+                <a href="#reservation" class="hidden sm:inline-flex bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl font-semibold shadow-sm transition text-sm">
+                    교육 신청하기
+                </a>
+                <!-- 모바일 햄버거 버튼 -->
+                <button type="button" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="메뉴 열기"
+                    class="lg:hidden w-11 h-11 rounded-xl border border-slate-200 text-slate-700 flex items-center justify-center hover:bg-slate-50 transition">
+                    <i class="fa-solid fa-bars text-lg" id="menuIcon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- 모바일 메뉴 패널 -->
+        <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-100 bg-white shadow-lg">
+            <nav class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-col text-slate-700 font-semibold">
+                <a href="#about" class="mobile-link py-3 border-b border-slate-100 hover:text-emerald-600">조합소개</a>
+                <a href="#history" class="mobile-link py-3 border-b border-slate-100 hover:text-emerald-600">연혁·성과</a>
+                <a href="#programs" class="mobile-link py-3 border-b border-slate-100 hover:text-emerald-600">주요사업</a>
+                <a href="#quiz" class="mobile-link py-3 border-b border-slate-100 hover:text-emerald-600">자전거 안전지식 능력고사</a>
+                <a href="#reservation" class="mobile-link py-3 border-b border-slate-100 hover:text-emerald-600">학교 교육 신청</a>
+                <a href="#channels" class="mobile-link py-3 border-b border-slate-100 hover:text-emerald-600">공식 채널</a>
+                <a href="https://blog.naver.com/bikecoop" target="_blank" rel="noopener" class="mobile-link py-3 border-b border-slate-100 hover:text-emerald-600">네이버 공식 블로그 <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-1"></i></a>
+                <a href="#reservation" class="mobile-link mt-3 mb-2 bg-emerald-600 hover:bg-emerald-700 text-white text-center py-3 rounded-xl">교육 신청하기</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 첫 화면 (히어로 섹션) -->
+    <section id="top" class="relative bg-gradient-to-r from-emerald-900 to-slate-900 text-white py-20 md:py-24 overflow-hidden">
+        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center">
+            <!-- 첫 화면 중앙 로고 -->
+            <div class="mb-7 bg-white p-2.5 rounded-full shadow-2xl border-4 border-emerald-400 transform hover:scale-105 transition">
+                <img src="logo.svg" alt="바이쿱 메인 로고" width="128" height="128" class="h-28 w-28 md:h-32 md:w-32 object-contain rounded-full">
+            </div>
+
+            <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-sm px-4 py-1.5 rounded-full inline-block mb-6 font-medium">
+                자전거면 충분하다!! 자전거문화사회적협동조합
+            </span>
+            <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight mb-6 leading-tight">
+                모두를 위한 자전거 교통 문화와<br>지속 가능한 미래를 열어갑니다
+            </h1>
+            <p class="text-base md:text-xl text-slate-300 max-w-2xl mx-auto">
+                일상 중심의 자전거 교통 문화 정착 및 안전한 교육 환경을 조성합니다.
+            </p>
+
+            <div class="mt-9 flex flex-col sm:flex-row gap-3">
+                <a href="#reservation" class="bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-bold px-7 py-3.5 rounded-xl shadow-lg transition">
+                    <i class="fa-regular fa-calendar-check mr-2"></i>학교 교육 신청
+                </a>
+                <a href="#quiz" class="bg-white/10 hover:bg-white/20 text-white border border-white/25 font-semibold px-7 py-3.5 rounded-xl transition">
+                    <i class="fa-solid fa-graduation-cap mr-2"></i>안전지식 능력고사
+                </a>
+            </div>
+
+            <div class="mt-10 grid grid-cols-3 gap-4 sm:gap-10 text-center w-full max-w-2xl">
+                <div>
+                    <div class="text-2xl md:text-3xl font-extrabold text-yellow-300">37만</div>
+                    <div class="text-[11px] md:text-xs text-slate-400 mt-1">누적 교육 초등학생</div>
+                </div>
+                <div>
+                    <div class="text-2xl md:text-3xl font-extrabold text-emerald-300">2014</div>
+                    <div class="text-[11px] md:text-xs text-slate-400 mt-1">설립 이후</div>
+                </div>
+                <div>
+                    <div class="text-2xl md:text-3xl font-extrabold text-emerald-300">2027~29</div>
+                    <div class="text-[11px] md:text-xs text-slate-400 mt-1">노원구 어린이교통공원</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 조합 소개 섹션 -->
+    <section id="about" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+            <span class="text-emerald-600 font-semibold text-sm uppercase tracking-wider mb-2 block">About Us</span>
+            <h2 class="text-3xl font-bold text-slate-900 mb-4">조합 소개</h2>
+            <p class="text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                자전거문화사회적협동조합(바이쿱)은 자전거를 통해 생태적 전환을 이루고, 건강한 지역 공동체를 구축하며, 누구나 안전하게 자전거를 탈 수 있는 교육과 인프라를 만들어가는 비영리 사회적경제 조직입니다.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-white p-7 rounded-2xl border border-slate-100 shadow-sm">
+                <div class="w-11 h-11 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-seedling"></i></div>
+                <h3 class="font-bold text-slate-900 mb-2">생태적 전환</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">자동차 중심의 일상을 자전거 중심으로 바꾸어 탄소를 줄이고, 동네의 속도를 사람의 속도로 되돌립니다.</p>
+            </div>
+            <div class="bg-white p-7 rounded-2xl border border-slate-100 shadow-sm">
+                <div class="w-11 h-11 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-people-group"></i></div>
+                <h3 class="font-bold text-slate-900 mb-2">지역 공동체</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">조합원과 지역 주민, 학교와 지자체가 함께 만드는 자전거 생활 문화와 사회연대경제 활동을 이어갑니다.</p>
+            </div>
+            <div class="bg-white p-7 rounded-2xl border border-slate-100 shadow-sm">
+                <div class="w-11 h-11 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3 class="font-bold text-slate-900 mb-2">안전한 교육</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">찾아가는 자전거 안전교육과 실내 강습으로 아이부터 어른까지 스스로 안전하게 탈 수 있게 합니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 조합 연혁 및 성과 섹션 -->
+    <section id="history" class="py-16 bg-slate-100/75 border-y border-slate-200/60">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900 mb-2">조합 연혁 및 성과</h2>
+                <p class="text-slate-600 text-sm">바이쿱이 걸어온 주요 발자취입니다.</p>
+            </div>
+
+            <!-- 핵심 성과 배너 -->
+            <div class="mb-10 bg-gradient-to-r from-emerald-600 to-teal-700 text-white p-8 md:p-10 rounded-3xl shadow-xl text-center relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl font-black">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div class="relative z-10">
+                    <span class="bg-white/20 text-emerald-100 text-xs font-extrabold uppercase px-3.5 py-1.5 rounded-full tracking-wider inline-block mb-4">
+                        <i class="fa-solid fa-award mr-1"></i> 누적 교육 대성과
+                    </span>
+                    <h3 class="text-2xl md:text-4xl font-black tracking-tight mb-3">
+                        2014년 설립 이후
+                    </h3>
+                    <p class="text-lg md:text-2xl font-medium text-emerald-100 leading-relaxed">
+                        경기도 내 찾아가는 자전거안전교육 <span class="text-yellow-300 font-extrabold underline decoration-yellow-300 decoration-4 underline-offset-8">초등학생 37만 명</span> 교육 달성!
+                    </p>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/60 flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                    <div class="font-bold text-emerald-600 text-lg md:w-32 shrink-0">2014년</div>
+                    <div class="text-slate-700 flex-1 font-semibold">행정안전부 설립인가</div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/60 flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                    <div class="font-bold text-emerald-600 text-lg md:w-32 shrink-0">2020년</div>
+                    <div class="text-slate-700 flex-1 font-semibold">자전거이용활성화 행정안전부 장관상 수상</div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/60 flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                    <div class="font-bold text-emerald-600 text-lg md:w-32 shrink-0">2022년</div>
+                    <div class="text-slate-700 flex-1 font-semibold">고용노동부 사회적기업 인증</div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-lg ring-1 ring-emerald-200 border border-emerald-100 flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                    <div class="font-bold text-emerald-600 text-lg md:w-32 shrink-0">2026년</div>
+                    <div class="text-slate-700 flex-1 font-semibold">
+                        노원구 어린이교통공원 운영 수탁기관 선정 <span class="text-emerald-700">(2027~2029)</span>
+                        <span class="ml-2 text-[11px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full align-middle">NEW</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 주요 사업 소개 -->
+    <section id="programs" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+            <h2 class="text-3xl font-bold text-slate-900 mb-4">주요 사업 및 활동</h2>
+            <p class="text-slate-600 max-w-xl mx-auto">카드를 클릭하여 세부 내용과 상품을 확인해 보세요!</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- 1. 자전거 안전 교육 -->
+            <a href="#reservation" class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg hover:border-emerald-500 transition block group">
+                <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl mb-6 group-hover:bg-emerald-600 group-hover:text-white transition">
+                    <i class="fa-solid fa-school"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition">자전거 안전 교육 &rarr;</h3>
+                <p class="text-slate-600 leading-relaxed text-sm">
+                    초·중·고등학교를 찾아가는 체계적인 자전거 이론 및 실기 주행 안전 교육 일정 예약하기
+                </p>
+            </a>
+
+            <!-- 2. 자전거 국토종주 -->
+            <div onclick="openModal('tour')" class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg hover:border-emerald-500 transition cursor-pointer group">
+                <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl mb-6 group-hover:bg-emerald-600 group-hover:text-white transition">
+                    <i class="fa-solid fa-route"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition">자전거 국토종주 투어 &rarr;</h3>
+                <p class="text-slate-600 leading-relaxed text-sm">
+                    프로그램 소개 보기 (도전과 성취감을 나누는 국토완주 및 자전거 투어 안내)
+                </p>
+            </div>
+
+            <!-- 3. 사회연대경제 우선구매 -->
+            <div onclick="openModal('purchase')" class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg hover:border-emerald-500 transition cursor-pointer group">
+                <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl mb-6 group-hover:bg-emerald-600 group-hover:text-white transition">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition">사회연대경제 우선구매 &rarr;</h3>
+                <p class="text-slate-600 leading-relaxed text-sm">
+                    공공자전거, 순찰용자전거 납품 안내 및 공식 상품보기
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 공식 채널 / 바이크프렌즈 사이클아카데미 -->
+    <section id="channels" class="py-16 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <span class="text-emerald-400 font-semibold text-sm uppercase tracking-wider mb-2 block">Bike Friends &amp; Official Channels</span>
+                <h2 class="text-3xl font-bold mb-3">바이크프렌즈 사이클아카데미</h2>
+                <p class="text-slate-300 max-w-2xl mx-auto text-sm leading-relaxed">
+                    어린이·성인 1:1 자전거 강습부터 자전거 판매·정비, 공공기관 우선구매까지.
+                    바이쿱의 소식과 프로그램은 아래 공식 채널에서 가장 먼저 확인하실 수 있습니다.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- 스마트스토어 -->
+                <a href="https://smartstore.naver.com/bikecoop2014" target="_blank" rel="noopener"
+                   class="group bg-slate-800/70 hover:bg-slate-800 border border-slate-700 hover:border-emerald-500 rounded-2xl p-7 transition">
+                    <div class="w-12 h-12 bg-[#03c75a]/15 text-[#03c75a] rounded-xl flex items-center justify-center text-2xl mb-5">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 flex items-center gap-2">네이버 스마트스토어
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-emerald-400"></i>
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-4">자전거·정비·강습 상품을 한눈에 보고 바로 예약·구매하실 수 있습니다.</p>
+                    <span class="text-xs font-semibold text-emerald-400">smartstore.naver.com/bikecoop2014</span>
+                </a>
+
+                <!-- 인스타그램 -->
+                <a href="https://www.instagram.com/bikecoop2014/" target="_blank" rel="noopener"
+                   class="group bg-slate-800/70 hover:bg-slate-800 border border-slate-700 hover:border-emerald-500 rounded-2xl p-7 transition">
+                    <div class="w-12 h-12 bg-pink-500/15 text-pink-400 rounded-xl flex items-center justify-center text-2xl mb-5">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 flex items-center gap-2">인스타그램
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-emerald-400"></i>
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-4">현장 교육 사진과 강습 안내, 이벤트 소식을 가장 빠르게 전합니다.</p>
+                    <span class="text-xs font-semibold text-emerald-400">@bikecoop2014</span>
+                </a>
+
+                <!-- 블로그 -->
+                <a href="https://blog.naver.com/bikecoop" target="_blank" rel="noopener"
+                   class="group bg-slate-800/70 hover:bg-slate-800 border border-slate-700 hover:border-emerald-500 rounded-2xl p-7 transition">
+                    <div class="w-12 h-12 bg-emerald-500/15 text-emerald-400 rounded-xl flex items-center justify-center text-2xl mb-5">
+                        <i class="fa-solid fa-blog"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 flex items-center gap-2">네이버 공식 블로그
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-emerald-400"></i>
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-4">자전거 교육 현장과 조합의 활동을 사진과 글로 자세히 기록합니다.</p>
+                    <span class="text-xs font-semibold text-emerald-400">blog.naver.com/bikecoop</span>
+                </a>
+            </div>
+
+            <p class="text-center text-xs text-slate-500 mt-8">
+                강습·납품 문의 <a href="tel:01043765553" class="text-emerald-400 underline">010-4376-5553</a> ·
+                <a href="tel:0312717771" class="text-emerald-400 underline">031-271-7771</a> (평일 09:00~18:00)
+            </p>
+        </div>
+    </section>
+
+    <!-- 상세 내용 모달 팝업 창 -->
+    <div id="detailModal" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-8 shadow-2xl relative border border-slate-100 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal()" aria-label="닫기" class="absolute top-6 right-6 text-slate-400 hover:text-slate-700 text-xl font-bold w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="modalContent" class="space-y-4"></div>
+        </div>
+    </div>
+
+    <!-- 자전거 안전지식 능력고사 및 수료증 발급 섹션 -->
+    <section id="quiz" class="py-20 bg-white border-y border-slate-200/60">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-emerald-600 font-semibold text-sm uppercase tracking-wider mb-2 block">Safety Knowledge Test &amp; Certificate</span>
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">자전거 안전지식 능력고사</h2>
+                <p class="text-slate-600 max-w-xl mx-auto">
+                    바이크프렌즈와 함께 알아보는 안전한 자전거 생활! 문제를 풀고 라이더 수료증을 받아보세요.
+                </p>
+            </div>
+
+            <!-- 응시자 정보 입력 박스 -->
+            <div id="quizUserInfo" class="bg-slate-50 p-8 rounded-2xl border border-slate-200 shadow-sm mb-8">
+                <h3 class="text-lg font-bold text-slate-900 mb-2"><i class="fa-solid fa-user-pen text-emerald-600 mr-2"></i>학교명 / 이름 입력</h3>
+                <p class="text-xs text-slate-500 mb-4">예시: 사랑초등학교 / 홍길동</p>
+                <div class="grid md:grid-cols-2 gap-4 mb-6">
+                    <div>
+                        <label for="userSchool" class="block text-xs font-semibold text-slate-600 mb-1">학교명</label>
+                        <input type="text" id="userSchool" placeholder="예: 사랑초등학교" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-emerald-500">
+                    </div>
+                    <div>
+                        <label for="userName" class="block text-xs font-semibold text-slate-600 mb-1">이름</label>
+                        <input type="text" id="userName" placeholder="예: 홍길동" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-emerald-500">
+                    </div>
+                </div>
+                <button onclick="startQuiz()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 rounded-xl shadow-sm transition text-sm">
+                    능력고사 시작하기
+                </button>
+            </div>
+
+            <!-- 퀴즈 문항 영역 (기본 숨김) -->
+            <div id="quizContainer" class="hidden bg-slate-50 p-8 rounded-2xl border border-slate-200 shadow-sm">
+                <div id="quizQuestions" class="space-y-8"></div>
+                <button onclick="submitQuiz()" class="mt-8 w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3.5 rounded-xl shadow-sm transition text-sm">
+                    정답 제출하기
+                </button>
+            </div>
+
+            <!-- 결과 및 수료증 영역 (기본 숨김) -->
+            <div id="resultContainer" class="hidden bg-emerald-50 p-8 rounded-2xl border border-emerald-200 text-center">
+                <div id="scoreMessage" class="text-2xl font-bold text-slate-900 mb-4"></div>
+                <p id="scoreSubText" class="text-slate-600 mb-6 text-sm"></p>
+
+                <!-- 수료증 카드 (프린트 가능) -->
+                <div id="printableCertificate" class="bg-white p-8 md:p-12 rounded-2xl border-4 border-double border-emerald-600 shadow-md max-w-2xl mx-auto mb-8 text-center relative">
+                    <div class="text-emerald-700 font-bold text-xs tracking-widest uppercase mb-2">Certificate of Completion</div>
+                    <h3 class="text-3xl font-extrabold text-slate-900 mb-6 tracking-tight">자전거 안전지식 수료증</h3>
+                    <div class="text-slate-700 text-base leading-relaxed mb-8">
+                        위 사람은 자전거문화사회적협동조합에서 주관하는<br>
+                        <span class="font-bold text-slate-900 text-lg">"자전거 안전지식 능력고사"</span>를 우수한 성적으로 이수하였기에<br>
+                        이 수료증을 수여합니다.
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 text-left bg-slate-50 p-4 rounded-xl mb-8 text-sm border border-slate-100">
+                        <div><span class="text-slate-400">성 명:</span> <span id="certName" class="font-bold text-slate-800"></span></div>
+                        <div><span class="text-slate-400">소 속:</span> <span id="certSchool" class="font-bold text-slate-800"></span></div>
+                    </div>
+                    <div class="text-sm font-bold text-slate-800 mb-2" id="certDate">2026년 11월 19일</div>
+                    <div class="text-xl font-extrabold text-emerald-700 tracking-wider">자전거문화사회적협동조합 이사장</div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button onclick="window.print()" class="bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-xl font-semibold text-sm transition shadow-sm">
+                        <i class="fa-solid fa-print mr-2"></i> 수료증 인쇄 / PDF 저장
+                    </button>
+                    <button onclick="resetQuiz()" class="bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 px-6 py-3 rounded-xl font-semibold text-sm transition">
+                        다시 풀기
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 학교 교육 신청 및 캘린더 섹션 -->
+    <section id="reservation" class="py-20 bg-emerald-50/55 border-y border-emerald-100/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-emerald-600 font-semibold text-sm uppercase tracking-wider mb-2 block">School Education Reservation</span>
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">학교 교육 일정 및 신청</h2>
+                <p class="text-slate-600 max-w-xl mx-auto">
+                    원하시는 날짜를 선택하여 학교 교육을 신청하세요. (하루 최대 2팀까지 신청 가능합니다.)
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8 items-start">
+                <!-- 캘린더 박스 -->
+                <div class="lg:col-span-2 bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 id="currentMonthYear" class="text-xl font-bold text-slate-900">2026년 11월</h3>
+                        <div class="flex space-x-2">
+                            <button onclick="changeMonth(-1)" aria-label="이전 달" class="p-2 w-10 h-10 rounded-lg border border-slate-200 hover:bg-slate-50 transition"><i class="fa-solid fa-chevron-left"></i></button>
+                            <button onclick="goToday()" class="px-3 h-10 rounded-lg border border-slate-200 hover:bg-slate-50 transition text-xs font-semibold text-slate-600">오늘</button>
+                            <button onclick="changeMonth(1)" aria-label="다음 달" class="p-2 w-10 h-10 rounded-lg border border-slate-200 hover:bg-slate-50 transition"><i class="fa-solid fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <!-- 요일 헤더 -->
+                    <div class="grid grid-cols-7 gap-1.5 md:gap-2 text-center font-semibold text-slate-400 text-sm mb-3">
+                        <span class="text-red-500">일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span class="text-blue-500">토</span>
+                    </div>
+                    <!-- 날짜 그리드 -->
+                    <div id="calendarDays" class="grid grid-cols-7 gap-1.5 md:gap-2"></div>
+                    <p class="mt-5 text-xs text-slate-500 leading-relaxed">
+                        <i class="fa-solid fa-circle-info text-emerald-600 mr-1"></i>
+                        달력의 날짜는 <b>신청 희망일</b>입니다. 실제 일정은 담당자 확인 후 확정되며, 지난 날짜는 선택할 수 없습니다.
+                    </p>
+                </div>
+
+                <!-- 선택된 날짜 신청 패널 -->
+                <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100">
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">학교 교육 신청서</h3>
+                    <div id="selectedDateInfo" class="mb-6 p-4 bg-slate-50 rounded-xl border border-slate-100 text-slate-600 text-sm">
+                        달력에서 날짜를 선택해 주세요.
+                    </div>
+
+                    <div id="reservationFormWrapper" class="hidden">
+                        <form id="applyForm" onsubmit="handleReservationSubmit(event)" class="space-y-4">
+                            <div>
+                                <label for="schoolRegion" class="block text-xs font-semibold text-slate-600 mb-1">지역 선택</label>
+                                <select id="schoolRegion" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-emerald-500">
+                                    <option value="수원시">수원시</option>
+                                    <option value="용인시">용인시</option>
+                                    <option value="화성시">화성시</option>
+                                    <option value="기타 경기지역">기타 경기지역</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="schoolName" class="block text-xs font-semibold text-slate-600 mb-1">학교명</label>
+                                <input type="text" id="schoolName" required placeholder="예: OO초등학교" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-emerald-500">
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label for="classCount" class="block text-xs font-semibold text-slate-600 mb-1">학급수</label>
+                                    <input type="number" id="classCount" min="1" value="2" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-emerald-500">
+                                </div>
+                                <div>
+                                    <label for="studentCount" class="block text-xs font-semibold text-slate-600 mb-1">학생수</label>
+                                    <input type="number" id="studentCount" min="1" value="50" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-emerald-500">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="teacherPhone" class="block text-xs font-semibold text-slate-600 mb-1">담당 선생님 연락처</label>
+                                <input type="tel" id="teacherPhone" required placeholder="010-0000-0000" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-emerald-500">
+                            </div>
+                            <div>
+                                <label for="instructorName" class="block text-xs font-semibold text-slate-600 mb-1">담당 강사단 이름 (선택입력)</label>
+                                <input type="text" id="instructorName" placeholder="예: 김바이쿱 강사단" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-emerald-500">
+                            </div>
+                            <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 rounded-xl shadow-sm transition text-sm">
+                                교육 신청 완료하기
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- 신청 완료 안내 (제출 후 표시) -->
+                    <div id="applySuccess" class="hidden">
+                        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-xl mx-auto mb-4">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <h4 class="text-center text-lg font-bold text-slate-900 mb-3">신청 내역이 확인되었습니다</h4>
+                        <p class="text-sm text-slate-600 leading-relaxed text-center mb-4">
+                            빠른 확정을 위해
+                            <a href="tel:0312717771" class="font-bold text-emerald-700 underline">031-271-7771</a> 또는
+                            <a href="tel:01043765553" class="font-bold text-emerald-700 underline">010-4376-5553</a>으로
+                            연락 주시면 바로 일정 확정해 드립니다.
+                        </p>
+                        <div id="applySummary" class="bg-slate-50 border border-slate-200 rounded-xl p-4 text-xs text-slate-600 space-y-1.5 mb-5"></div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <a href="tel:0312717771" class="bg-emerald-600 hover:bg-emerald-700 text-white text-center font-semibold py-2.5 rounded-xl text-sm transition">사무실 전화</a>
+                            <a href="tel:01043765553" class="bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 text-center font-semibold py-2.5 rounded-xl text-sm transition">담당자 휴대폰</a>
+                        </div>
+                        <button onclick="startNewApplication()" class="w-full mt-3 text-xs text-slate-500 underline">다른 날짜로 다시 신청하기</button>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t border-slate-100 text-xs text-slate-500 space-y-2">
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-600"></i><span>하루 최대 2팀까지 신청 가능합니다.</span></div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-600"></i><span>신청 후 담당자가 전화로 일정을 확정해 드립니다.</span></div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-600"></i><span>상담 가능 시간: 평일 09:00 ~ 18:00</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 / 오시는 길 및 안내 문구 -->
+    <footer id="contact" class="bg-slate-900 text-slate-400 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 items-start">
+            <div>
+                <div class="flex items-center space-x-3 mb-4">
+                    <img src="logo.svg" alt="바이쿱 로고" width="44" height="44" class="h-11 w-11 rounded-full bg-white p-0.5">
+                    <span class="text-white font-bold text-lg">자전거문화사회적협동조합 (바이쿱)</span>
+                </div>
+                <p class="text-sm mb-4 leading-relaxed">
+                    조합소개, 연혁, 교육신청 등 궁금한 점은 언제든지 연락주시기 바랍니다.
+                </p>
+                <div class="mb-5">
+                    <span class="inline-block bg-slate-800 text-emerald-400 text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 mb-1">상담 가능 시간</span>
+                    <p class="text-xs text-slate-300">평일 09:00 ~ 18:00</p>
+                </div>
+                <p class="text-xs text-slate-500 leading-relaxed">
+                    대표 김진태 · 사업자등록번호 124-87-51000<br>
+                    © <span id="copyrightYear">2026</span> 자전거문화사회적협동조합. All rights reserved.
+                </p>
+            </div>
+            <div class="space-y-3 text-sm">
+                <p>
+                    <i class="fa-solid fa-phone w-6 text-emerald-500"></i>
+                    대표연락처:
+                    <a href="tel:0312717771" class="hover:text-emerald-400">031-271-7771</a> /
+                    <a href="tel:01043765553" class="hover:text-emerald-400">010-4376-5553</a>
+                </p>
+                <p><i class="fa-solid fa-fax w-6 text-emerald-500"></i> 팩스: 031-5182-8279</p>
+                <p class="leading-relaxed">
+                    <i class="fa-solid fa-location-dot w-6 text-emerald-500"></i>
+                    경기도 수원시 권선구 산업로 156번길 142-10, B동 405호 (수원벤처밸리2, 우 16648)
+                </p>
+                <p><i class="fa-solid fa-blog w-6 text-emerald-500"></i> <a href="https://blog.naver.com/bikecoop" target="_blank" rel="noopener" class="text-emerald-400 underline">네이버 공식 블로그 바로가기</a></p>
+                <p><i class="fa-brands fa-instagram w-6 text-emerald-500"></i> <a href="https://www.instagram.com/bikecoop2014/" target="_blank" rel="noopener" class="text-emerald-400 underline">인스타그램 @bikecoop2014</a></p>
+                <p><i class="fa-solid fa-bag-shopping w-6 text-emerald-500"></i> <a href="https://smartstore.naver.com/bikecoop2014" target="_blank" rel="noopener" class="text-emerald-400 underline">바이크프렌즈 사이클아카데미 스마트스토어</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 자바스크립트 로직 -->
+    <script>
+        /* ---------- 공통 날짜 ---------- */
+        const TODAY = new Date();
+        const pad2 = (n) => String(n).padStart(2, '0');
+        const ymd = (d) => `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`;
+        const TODAY_KEY = ymd(TODAY);
+
+        function formatKoreanDate(d) {
+            return `${d.getFullYear()}년 ${d.getMonth() + 1}월 ${d.getDate()}일`;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const certDate = document.getElementById('certDate');
+            if (certDate) certDate.innerText = formatKoreanDate(TODAY);
+            const cy = document.getElementById('copyrightYear');
+            if (cy) cy.innerText = TODAY.getFullYear();
+        });
+
+        /* ---------- 모바일 메뉴 ---------- */
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+
+        function closeMobileMenu() {
+            mobileMenu.classList.add('hidden');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            menuBtn.setAttribute('aria-label', '메뉴 열기');
+            menuIcon.className = 'fa-solid fa-bars text-lg';
+        }
+
+        menuBtn.addEventListener('click', () => {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            if (isOpen) {
+                closeMobileMenu();
+            } else {
+                mobileMenu.classList.remove('hidden');
+                menuBtn.setAttribute('aria-expanded', 'true');
+                menuBtn.setAttribute('aria-label', '메뉴 닫기');
+                menuIcon.className = 'fa-solid fa-xmark text-lg';
+            }
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) closeMobileMenu();
+        });
+
+        /* ---------- 상세 모달 ---------- */
+        function openModal(type) {
+            const modal = document.getElementById('detailModal');
+            const content = document.getElementById('modalContent');
+
+            if (type === 'tour') {
+                content.innerHTML = `
+                    <div class="text-emerald-600 text-3xl mb-3"><i class="fa-solid fa-route"></i></div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2">자전거 국토종주 투어 프로그램</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        청소년들과 함께 도전하고 성취감을 나누는 국토완주 프로그램 및 자전거 투어입니다. 안전한 라이딩 기술 습득, 협동심 배양, 국토 종주 코스 완주 등을 체계적으로 지원합니다.
+                    </p>
+                    <div class="bg-slate-50 p-4 rounded-xl text-xs text-slate-500 space-y-1 mb-6">
+                        <p>· 대상: 초·중·고 청소년 및 동아리</p>
+                        <p>· 주요코스: 국토종주 자전거길 및 지역 명소 투어</p>
+                    </div>
+                    <a href="tel:01043765553" class="block w-full bg-emerald-600 text-white py-3 rounded-xl font-semibold text-sm hover:bg-emerald-700 transition text-center">문의하기 (010-4376-5553)</a>
+                `;
+            } else if (type === 'purchase') {
+                content.innerHTML = `
+                    <div class="text-emerald-600 text-3xl mb-3"><i class="fa-solid fa-handshake-angle"></i></div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2">사회연대경제 우선구매</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        공공기관 및 학교 등을 위한 사회연대경제 우선구매 연계 서비스입니다. <b>공공자전거, 순찰용자전거 납품</b>을 통해 안전하고 내구성 뛰어난 제품을 투명하게 공급합니다.
+                    </p>
+                    <div class="bg-emerald-50 border border-emerald-100 p-4 rounded-xl text-xs text-emerald-900 space-y-2 mb-6">
+                        <p class="font-bold">🚲 공식 상품 안내</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="https://www.samchuly.co.kr" target="_blank" rel="noopener" class="flex-1 bg-white hover:bg-emerald-600 hover:text-white text-emerald-700 border border-emerald-300 font-semibold py-2.5 px-3 rounded-lg text-center transition shadow-sm">
+                                삼천리자전거몰 &rarr;
+                            </a>
+                            <a href="https://www.altonsports.com" target="_blank" rel="noopener" class="flex-1 bg-white hover:bg-emerald-600 hover:text-white text-emerald-700 border border-emerald-300 font-semibold py-2.5 px-3 rounded-lg text-center transition shadow-sm">
+                                알톤자전거몰 &rarr;
+                            </a>
+                        </div>
+                        <a href="https://smartstore.naver.com/bikecoop2014" target="_blank" rel="noopener" class="block text-center text-emerald-700 font-semibold underline pt-2">바이크프렌즈 사이클아카데미 스마트스토어 &rarr;</a>
+                    </div>
+                    <button onclick="closeModal()" class="w-full bg-slate-900 text-white py-3 rounded-xl font-semibold text-sm hover:bg-slate-800 transition">닫기</button>
+                `;
+            }
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('detailModal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('detailModal').addEventListener('click', (e) => {
+            if (e.target.id === 'detailModal') closeModal();
+        });
+
+        /* ---------- 안전지식 능력고사 ---------- */
+        const quizData = [
+            {
+                q: "1. 자전거는 법적으로 □다.",
+                hint: "도로교통법에 따르면 자전거는 자동차, 오토바이와 같이 □으로 분류되어 있어. 놀이기구나 장난감으로 생각하면 안돼!",
+                type: "input",
+                answer: ["차", "차마"]
+            },
+            {
+                q: "2. 자전거를 탈 때 헬멧을 꼭 착용해야 한다?",
+                hint: "헬멧은 나이와 관계없이 모든 사람이 자전거를 탈 때 착용해야 한다고 법에 정해져 있어.",
+                type: "ox",
+                answer: "O"
+            },
+            {
+                q: "3. 브레이크는 필요할 때만 손을 올려 두면 된다?",
+                hint: "브레이크 위에는 항상 손을 올려두어야 갑작스러운 장애물이 나타나도 속도를 줄여 사고를 막을 수 있어.",
+                type: "ox",
+                answer: "X"
+            },
+            {
+                q: "4. 차도에서 자전거를 탈 때, □쪽으로 내리는 것이 비교적 안전하다.",
+                hint: "차도에서 자전거를 탈 때는 가장 오른쪽 차선의 절반만 이용하기로 했어. 그렇다면 나의 왼쪽으로는 자동차가 지나가겠지?",
+                type: "input",
+                answer: ["오른쪽", "우측"]
+            },
+            {
+                q: "5. 자전거를 타고 횡단보도를 건너도 된다?",
+                hint: "횡단보도는 보행자를 위한 구역이야. 자전거는 법적으로 '차'라는 것 잊지마!",
+                type: "ox",
+                answer: "X"
+            },
+            {
+                q: "6. 수신호는 □손으로만 한다.",
+                hint: "자전거 수신호는 자동차 수신호와 같아. 자동차 운전자가 오른손으로 수신호를 한다면? 아마 뒤차는 절대 볼 수 없을 거야.",
+                type: "input",
+                answer: ["왼", "왼손", "좌측"]
+            }
+        ];
+
+        let participantName = "";
+        let participantSchool = "";
+
+        function startQuiz() {
+            const school = document.getElementById('userSchool').value.trim();
+            const name = document.getElementById('userName').value.trim();
+
+            if (!school || !name) {
+                alert("학교명과 이름을 모두 입력해 주세요!");
+                return;
+            }
+
+            participantSchool = school;
+            participantName = name;
+
+            document.getElementById('quizUserInfo').classList.add('hidden');
+            document.getElementById('quizContainer').classList.remove('hidden');
+
+            const container = document.getElementById('quizQuestions');
+            container.innerHTML = "";
+
+            quizData.forEach((item, index) => {
+                let answerHtml = "";
+                if (item.type === "ox") {
+                    answerHtml = `
+                        <div class="flex gap-4 mt-3">
+                            <label class="flex items-center space-x-2 px-4 py-2 rounded-xl border border-slate-200 bg-white cursor-pointer hover:border-emerald-500 transition">
+                                <input type="radio" name="q_${index}" value="O" class="text-emerald-600 focus:ring-emerald-500">
+                                <span class="font-bold text-lg">O</span>
+                            </label>
+                            <label class="flex items-center space-x-2 px-4 py-2 rounded-xl border border-slate-200 bg-white cursor-pointer hover:border-emerald-500 transition">
+                                <input type="radio" name="q_${index}" value="X" class="text-emerald-600 focus:ring-emerald-500">
+                                <span class="font-bold text-lg">X</span>
+                            </label>
+                        </div>
+                    `;
+                } else {
+                    answerHtml = `
+                        <div class="mt-3">
+                            <input type="text" name="q_${index}" placeholder="정답을 입력하세요" class="w-full md:w-1/2 px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-emerald-500">
+                        </div>
+                    `;
+                }
+
+                container.innerHTML += `
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm space-y-2">
+                        <p class="font-bold text-slate-900 text-base">${item.q}</p>
+                        <p class="text-xs text-emerald-700 bg-emerald-50 p-2.5 rounded-lg border border-emerald-100"><i class="fa-solid fa-lightbulb mr-1"></i> 힌트: ${item.hint}</p>
+                        ${answerHtml}
+                    </div>
+                `;
+            });
+
+            document.getElementById('quizContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function submitQuiz() {
+            let correctCount = 0;
+
+            quizData.forEach((item, index) => {
+                if (item.type === "ox") {
+                    const selected = document.querySelector(`input[name="q_${index}"]:checked`);
+                    if (selected && selected.value === item.answer) {
+                        correctCount++;
+                    }
+                } else {
+                    const inputElem = document.querySelector(`input[name="q_${index}"]`);
+                    if (inputElem) {
+                        const val = inputElem.value.trim().replace(/\s+/g, '');
+                        const isMatch = item.answer.some(ans => val.includes(ans));
+                        if (isMatch) {
+                            correctCount++;
+                        }
+                    }
+                }
+            });
+
+            const score = Math.round((correctCount / quizData.length) * 100);
+            const isPassed = score >= 60;
+
+            document.getElementById('quizContainer').classList.add('hidden');
+            document.getElementById('resultContainer').classList.remove('hidden');
+
+            document.getElementById('scoreMessage').innerText = isPassed ? `🎉 축하합니다! 합격하셨습니다.` : `😢 아쉽게도 불합격하셨습니다.`;
+            document.getElementById('scoreSubText').innerText = `맞힌 개수: ${correctCount} / ${quizData.length}개 (나의 점수: ${score}점)`;
+
+            document.getElementById('certName').innerText = participantName;
+            document.getElementById('certSchool').innerText = participantSchool;
+            document.getElementById('certDate').innerText = formatKoreanDate(new Date());
+
+            document.getElementById('resultContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function resetQuiz() {
+            document.getElementById('resultContainer').classList.add('hidden');
+            document.getElementById('quizUserInfo').classList.remove('hidden');
+            document.getElementById('userName').value = "";
+            document.getElementById('userSchool').value = "";
+            document.getElementById('quizUserInfo').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        /* ---------- 교육 신청 달력 ---------- */
+        const SCRIPT_URL = ""; // 구글 시트 웹앱을 연결하면 이곳에 URL을 넣습니다.
+        let currentYear = TODAY.getFullYear();
+        let currentMonth = TODAY.getMonth();
+        let selectedDateStr = "";
+        const monthNames = ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"];
+
+        function isPastDate(dateStr) {
+            return dateStr < TODAY_KEY;
+        }
+
+        function renderCalendar() {
+            const firstDayIndex = new Date(currentYear, currentMonth, 1).getDay();
+            const totalDays = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+            document.getElementById('currentMonthYear').innerText = `${currentYear}년 ${monthNames[currentMonth]}`;
+            const daysContainer = document.getElementById('calendarDays');
+            daysContainer.innerHTML = "";
+
+            for (let i = 0; i < firstDayIndex; i++) {
+                daysContainer.appendChild(document.createElement('div'));
+            }
+
+            for (let day = 1; day <= totalDays; day++) {
+                const dateStr = `${currentYear}-${pad2(currentMonth + 1)}-${pad2(day)}`;
+                const isPast = isPastDate(dateStr);
+                const isToday = dateStr === TODAY_KEY;
+                const isSelected = dateStr === selectedDateStr;
+
+                const dayBtn = document.createElement('div');
+                dayBtn.className = `h-16 sm:h-20 p-1.5 sm:p-2 rounded-xl border flex flex-col justify-between transition relative ${
+                    isPast
+                        ? 'bg-slate-50 border-slate-100 opacity-60 cursor-not-allowed'
+                        : 'bg-white border-slate-100 hover:border-emerald-500 hover:shadow-sm cursor-pointer'
+                }`;
+                if (isToday && !isPast) dayBtn.classList.add('border-emerald-300', 'bg-emerald-50/40');
+                if (isSelected) dayBtn.classList.add('ring-2', 'ring-emerald-500', 'border-emerald-500');
+
+                dayBtn.innerHTML = `
+                    <div class="flex justify-between items-start gap-1 text-[11px] sm:text-xs">
+                        <span class="font-bold ${isPast ? 'text-slate-400' : 'text-slate-800'}">${day}</span>
+                        <span class="px-1 sm:px-1.5 py-0.5 rounded text-[9px] sm:text-[10px] font-semibold whitespace-nowrap ${
+                            isPast ? 'bg-slate-100 text-slate-400' : (isToday ? 'bg-emerald-600 text-white' : 'bg-emerald-50 text-emerald-600')
+                        }">${isPast ? '지난날' : (isToday ? '오늘' : '신청')}</span>
+                    </div>
+                    <div class="text-[10px] sm:text-[11px] leading-tight ${isPast ? 'text-slate-400' : 'text-slate-500'}">
+                        ${isPast ? '선택 불가' : '교육 신청'}
+                    </div>
+                `;
+
+                if (!isPast) {
+                    dayBtn.onclick = () => selectDate(dateStr);
+                    dayBtn.setAttribute('role', 'button');
+                    dayBtn.setAttribute('tabindex', '0');
+                    dayBtn.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectDate(dateStr); } };
+                }
+
+                daysContainer.appendChild(dayBtn);
+            }
+        }
+
+        function changeMonth(direction) {
+            currentMonth += direction;
+            if (currentMonth > 11) { currentMonth = 0; currentYear++; }
+            else if (currentMonth < 0) { currentMonth = 11; currentYear--; }
+            renderCalendar();
+        }
+
+        function goToday() {
+            currentYear = TODAY.getFullYear();
+            currentMonth = TODAY.getMonth();
+            renderCalendar();
+        }
+
+        function selectDate(dateStr) {
+            selectedDateStr = dateStr;
+            renderCalendar();
+
+            const [y, m, d] = dateStr.split('-');
+            document.getElementById('selectedDateInfo').innerHTML = `
+                <div class="font-bold text-slate-900 text-base mb-1"><i class="fa-regular fa-calendar-check text-emerald-600 mr-2"></i>선택 날짜: ${y}년 ${Number(m)}월 ${Number(d)}일</div>
+                <div class="text-xs text-emerald-600 font-medium">이 날짜로 학교 교육 신청을 진행합니다.</div>
+            `;
+            document.getElementById('applySuccess').classList.add('hidden');
+            document.getElementById('reservationFormWrapper').classList.remove('hidden');
+            document.getElementById('reservationFormWrapper').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function handleReservationSubmit(event) {
+            event.preventDefault();
+            if (!selectedDateStr) return;
+
+            const region = document.getElementById('schoolRegion').value;
+            const school = document.getElementById('schoolName').value.trim();
+            const classes = document.getElementById('classCount').value;
+            const students = document.getElementById('studentCount').value;
+            const phone = document.getElementById('teacherPhone').value.trim();
+            const instructor = document.getElementById('instructorName').value.trim();
+
+            const formData = { date: selectedDateStr, region, school, classes, students, phone, instructor };
+
+            if (SCRIPT_URL) {
+                fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                }).catch(err => console.log('Google Sheet sync error:', err));
+            }
+
+            const [y, m, d] = selectedDateStr.split('-');
+            const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+            document.getElementById('applySummary').innerHTML = `
+                <div><span class="text-slate-400">· 신청 날짜:</span> <b>${y}년 ${Number(m)}월 ${Number(d)}일</b></div>
+                <div><span class="text-slate-400">· 지역:</span> ${esc(region)}</div>
+                <div><span class="text-slate-400">· 학교명:</span> <b>${esc(school)}</b></div>
+                <div><span class="text-slate-400">· 학급수/학생수:</span> ${esc(classes)}학급 / ${esc(students)}명</div>
+                <div><span class="text-slate-400">· 담당 강사단:</span> ${esc(instructor || '미배정')}</div>
+                <div><span class="text-slate-400">· 담당 선생님 연락처:</span> ${esc(phone)}</div>
+            `;
+
+            document.getElementById('applyForm').reset();
+            document.getElementById('reservationFormWrapper').classList.add('hidden');
+            document.getElementById('applySuccess').classList.remove('hidden');
+            document.getElementById('selectedDateInfo').innerHTML = `
+                <div class="font-bold text-slate-900 text-base mb-1"><i class="fa-regular fa-calendar-check text-emerald-600 mr-2"></i>신청 날짜: ${y}년 ${Number(m)}월 ${Number(d)}일</div>
+                <div class="text-xs text-emerald-600 font-medium">아래 연락처로 전화 주시면 일정을 확정해 드립니다.</div>
+            `;
+            document.getElementById('applySuccess').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function startNewApplication() {
+            selectedDateStr = "";
+            document.getElementById('applySuccess').classList.add('hidden');
+            document.getElementById('selectedDateInfo').innerHTML = "달력에서 날짜를 선택해 주세요.";
+            renderCalendar();
+            document.getElementById('reservation').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        renderCalendar();
+    </script>
+</body>
+</html>
